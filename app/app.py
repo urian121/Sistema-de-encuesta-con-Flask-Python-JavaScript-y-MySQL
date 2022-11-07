@@ -67,7 +67,21 @@ def  savedEncuesta():
         
     return render_template('public/index.html')
     
+
+#Informacion de encuesta por codigo
+@app.route('/<codigo>', methods=['GET','POST'])
+def encuesta(codigo):
+    print(codigo)
     
+    conexion_MySQLdb = connectionBD() #Hago instancia a mi conexión desde la función
+    mycursor         = conexion_MySQLdb.cursor(dictionary=True)
+    mycursor.execute("SELECT p.id, p.pregunta, r.respuesta,r.codigo, r.observacion, r.created FROM preguntas as p INNER JOIN respuestas_encuesta AS r ON  p.id = r.id_pregunta AND p.estatus='1' AND r.codigo='%s'" % (codigo,))
+    inforEncuesta = mycursor.fetchall() 
+    conexion_MySQLdb.close() #cerrando conexion de la BD
+    
+    return render_template('public/listaEncuesta.html', data = inforEncuesta)
+    
+       
        
 #Redireccionando cuando la página no existe
 @app.errorhandler(404)

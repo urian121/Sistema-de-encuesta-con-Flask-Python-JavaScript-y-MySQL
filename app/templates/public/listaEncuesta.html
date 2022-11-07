@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://urianviera.com/img/icons/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/encuesta.css') }}">
+    <title>Sistema de encuesta con Python - JavaScript y MySQL</title>
+</head>
+<body>
+    
+    <div id="mainForm">
+
+        <div id="megadiv2">
+            <table id="header">
+                <tbody>
+                    <tr>
+                        <td rowspan="4" style="text-align:center">
+                            <img src="{{ url_for('static', filename ='imgs/logo.png') }}" class="logo" alt="log Web Developer">
+                        </td>
+                        <td rowspan="3" class="text-center text-bold">CASOS DE PRUEBA</td>
+                        <td><small><strong>CÓDIGO:</strong> <span id="codigo">00{{ codigoBD }}</span></small></td>
+                    </tr>
+                    <tr>
+                        <td><small><strong>VERSIÓN:</strong> 1</small></td>
+                    </tr>
+                    <tr>
+                        <td><small><strong>VIGENCIA:</strong> 2022-11-06</small></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center text-bold">GESTIÓN TECNOLÓGICA</td>
+                        <td><small><strong>TIPO:</strong> Publico</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br><br>
+                <table class="space padding-sm">
+                    <thead>
+                        <tr id="cabecera">    
+                            <th>#</th>
+                            <th>Pregunta </th>
+                            <th style="font-size:12px">SI (SI) | NO (NO) TAL VEZ (T)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pregunta in data %}
+                            <tr id="pregunta_{{ pregunta.id }}">
+                                <td>{{ pregunta.id }}</td>
+                                <td>{{ pregunta.pregunta }}</td>
+                                <td width="170"> 
+                                    <p class="conteFlex">
+                                      <strong>{{ pregunta.respuesta }}</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
