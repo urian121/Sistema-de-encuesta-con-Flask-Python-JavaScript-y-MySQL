@@ -8,8 +8,6 @@ window.addEventListener('load', (event) => {
 });
 
 
-
-
 function respuesta(idPregunta, idRespuesta){
     //console.log(idPregunta, idRespuesta)   
     let classIdPregunta = $(".class_"+idPregunta).removeClass('checkenRepuesta'); //quitar la clase 'checkenRepuesta' a todos los elemento
@@ -61,25 +59,4 @@ function accionBtn(sustraerEntero=0){
         }else{
             btnEnviar.disabled = true; 
      }
-}
-
-function saveformFormatoGS() {
-    let formFormatoGS = $('#formFormatoGS').serialize();
-    let spanCodigo = document.querySelector('#codigo').textContent;
-    let codigo = Number(spanCodigo);
-
-    $.ajax({
-        url: 'saved_encuesta.php',
-        type: 'POST',
-        data: formFormatoGS +'&codigo='+codigo,
-        dataType: 'json',
-        success: function (data) {
-            console.log(data);
-            if(data.respuesta){
-                alert('Felicitaciones, encuesta llenada correctamente.');
-                location.href ="index.php";
-            }
-
-        }
-    }); 
 }
