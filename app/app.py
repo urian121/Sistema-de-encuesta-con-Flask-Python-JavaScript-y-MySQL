@@ -36,7 +36,7 @@ def inicio():
 def  savedEncuesta():
     if request.method == 'POST':
         data         = request.form
-        #print(data)
+        print(data)
         
         observacion         = request.form['observacion']
         codigo              = request.form['codigo']
