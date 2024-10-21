@@ -1,24 +1,64 @@
-## PASO 1, Crear mi entorno virtual
-####  virtualenv -p python3 env o python3 -m venv nombreEntornoVirtual (env)
 
-### PASO 2, Activar el entorno virtual ejecutando;
-####  . env/Scripts/activate  
- 
-#### PASO 3, Ya dentro del entorno virtual instalar flask
-####  pip install flask
+# Guía para Configurar y Ejecutar el Proyecto
 
-#### Actualizar pip;  python.exe -m pip install --upgrade pip o python -m pip install --upgrade pip 
-#### PASO 4, Instalar Python MySQL Connector, es una bibliote (Driver) para conectar Python con MySQL
-#### pip install mysql-connector-python
+## Paso 1: Crear el entorno virtual
+Ejecuta uno de los siguientes comandos para crear tu entorno virtual:
+```bash
+virtualenv -p python3 env
+```
+O alternativamente:
+```bash
+python3 -m venv env
+```
 
-### PASO 5, Lista todos mis paquetes
-#### pip list  o pip freeze
+## Paso 2: Activar el entorno virtual
+Activa el entorno virtual con el siguiente comando:
 
-#### Crear/Actualizar el fichero requirements.txt:
-#### pip freeze > requirements.txt
+- En Windows:
+  ```bash
+  . env/Scripts/activate
+  ```
+- En Mac/Linux:
+  ```bash
+  source env/bin/activate
+  ```
 
-### IMPORTANTE, para correr el proyecto solo debes ejecutar el archivo
-#### requirements.txt con el comando pip install -r requirements.txt 
-#### en el mismo se encuentran todas las dependecias del proyecto.
- 
+## Paso 3: Instalar Flask
+Una vez que el entorno virtual esté activado, instala Flask:
+```bash
+pip install flask
+```
 
+Es recomendable actualizar `pip` a la última versión:
+```bash
+python -m pip install --upgrade pip
+```
+
+## Paso 4: Instalar el conector MySQL para Python
+Instala el driver necesario para conectar Python con MySQL:
+```bash
+pip install mysql-connector-python
+```
+
+## Paso 5: Listar los paquetes instalados
+Para ver los paquetes instalados en tu entorno virtual, puedes usar:
+```bash
+pip list
+```
+O generar un archivo `requirements.txt` con todas las dependencias del proyecto:
+```bash
+pip freeze > requirements.txt
+```
+
+## Paso 6: Instalar dependencias desde `requirements.txt`
+Para configurar rápidamente el entorno con las dependencias necesarias para el proyecto, usa el siguiente comando:
+```bash
+pip install -r requirements.txt
+```
+
+## Nota Importante:
+El archivo `requirements.txt` contiene todas las dependencias del proyecto, por lo que ejecutar el comando anterior instalará todo lo necesario para correr el proyecto.
+
+---
+
+¡Ahora estás listo para iniciar el desarrollo!
