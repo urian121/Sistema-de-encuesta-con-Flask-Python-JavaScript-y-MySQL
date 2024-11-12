@@ -1,6 +1,9 @@
 
 # Guía para Configurar y Ejecutar el Proyecto
 
+### Resultado final 
+![sistema](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/resultado-sistema-encuesta-con-flask.png)
+
 ## Paso 1: Crear el entorno virtual
 Ejecuta uno de los siguientes comandos para crear tu entorno virtual:
 ```bash
